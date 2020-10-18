@@ -57,7 +57,7 @@ import socket
 ap = argparse.ArgumentParser()
 # ap.add_argument("-m", "--model", required=True,
 # 	help="path to Caffe pre-trained model")
-ap.add_argument("-c", "--confidence", type=float, default=0.2,
+ap.add_argument("-c", "--confidence", type=float, default=0.4,
 	help="minimum probability to filter weak detections")
 args = vars(ap.parse_args())
 
@@ -117,6 +117,10 @@ while True:
 			# draw the prediction on the frame
 			label = "{}: {:.2f}%".format(CLASSES[idx],
 				confidence * 100)
+			
+			# Print the class of the found object
+			print("Found " + CLASSES[idx]);
+   
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				COLORS[idx], 2)
 			y = startY - 15 if startY - 15 > 15 else startY + 15
