@@ -15,41 +15,41 @@ import socket
 
 #************************************TELLO********************************************
 
-# telloFlying = False;
+telloFlying = False;
 
-# # IP and port of Tello
-# tello_address = ('192.168.10.1', 8889)
+# IP and port of Tello
+tello_address = ('192.168.10.1', 8889)
 
-# # Create a UDP connection that we'll send the command to
-# sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+# Create a UDP connection that we'll send the command to
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-# # Bind to a local port on our machine where Tello can send messages
-# sock.bind(('', 9000))
+# Bind to a local port on our machine where Tello can send messages
+sock.bind(('', 9000))
 
-# # Function to send messages to Tello
-# def send(message):
-#   try:
-#     sock.sendto(message.encode(), tello_address)
-#     print("Sending message: " + message)
-#   except Exception as e:
-#     print("Error sending: " + str(e))
+# Function to send messages to Tello
+def send(message):
+  try:
+    sock.sendto(message.encode(), tello_address)
+    print("Sending message: " + message)
+  except Exception as e:
+    print("Error sending: " + str(e))
 
-# # Function that listens for messages from Tello and prints them to the screen
-# def receive():
-#   try:
-#     response, ip_address = sock.recvfrom(128)
-#     print("Received message: " + response.decode(encoding='utf-8') + " from Tello with IP: " + str(ip_address))
-#   except Exception as e:
-#     print("Error receiving: " + str(e))
+# Function that listens for messages from Tello and prints them to the screen
+def receive():
+  try:
+    response, ip_address = sock.recvfrom(128)
+    print("Received message: " + response.decode(encoding='utf-8') + " from Tello with IP: " + str(ip_address))
+  except Exception as e:
+    print("Error receiving: " + str(e))
 
-# # Send Tello into command mode
-# send("command")
-# # Receive response from Tello
-# receive()
-# # Send Tello into streaming mode
-# send("streamon")
-# # Receive response from Tello
-# receive()
+# Send Tello into command mode
+#send("command")
+# Receive response from Tello
+#receive()
+# Send Tello into streaming mode
+#send("streamon")
+# Receive response from Tello
+#receive()
 
 #************************************TELLO********************************************
 
@@ -77,9 +77,10 @@ net = cv2.dnn.readNetFromCaffe("MobileNetSSD_deploy.prototxt.txt", "MobileNetSSD
 # and initialize the FPS counter
 print("[INFO] starting video stream...")
 vs = VideoStream(src=0).start()
-# vs = WebcamVideoStream(src=0).start()
+#vs = VideoStream("udp://@0.0.0.0:11111?overrun_nonfatal=1&fifo_size=50000000").start()
 time.sleep(2.0)
 fps = FPS().start()
+isExecuted = False;
 
 # loop over the frames from the video stream
 while True:
@@ -120,6 +121,10 @@ while True:
 			
 			# Print the class of the found object
 			print("Found " + CLASSES[idx]);
+			if(CLASSES[idx] == 'bottle' and isExecuted == False):
+				print("detected")
+				send('flip right')
+				isExceduted = True;
    
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				COLORS[idx], 2)
