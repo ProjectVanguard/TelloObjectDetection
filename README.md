@@ -6,7 +6,7 @@ Part of Project Vanguard's Fall 2020 Semester Projects, IRIS focused on providin
 
 The Tello will carry out code running on a host computer connected to the broadcasting wifi signal coming from the drone itself. Through this network, the aircraft will execute receiving commands using UDP.
 
-![IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/diagram.png](IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/diagram.png)
+<img src="./IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/diagram.png" alt="alt text" width="600"/>
 
 source→[https://nanonets.com/blog/content/images/2018/11/thelist.png](https://nanonets.com/blog/content/images/2018/11/thelist.png)
 
@@ -17,11 +17,11 @@ diningtable, dog, horse, motorbike, person, pottedplant, sheep, sofa, train, tvm
 
 The bottle object is being used to carry out the demo. Once the object is detected, the *flip right* flip r, command is sent to the drone.
 
-![IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/Draw-a-Water-Bottle-Step-11.jpg](IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/Draw-a-Water-Bottle-Step-11.jpg)
+send("flip r")
 
-![IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/415yjHOgXVL.jpg](IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/415yjHOgXVL.jpg)
+<img src="./IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/Draw-a-Water-Bottle-Step-11.jpg" alt="alt text" width="200"/>
 
-.                send("flip r")
+<img src="./IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/415yjHOgXVL.jpg" alt="alt text" width="285"/>
 
 ### Downloading the Code (Using Visual Studio Code)
 
