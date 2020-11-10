@@ -124,7 +124,7 @@ while True:
 			if(CLASSES[idx] == 'bottle' and isExecuted == False):
 				print("detected")
 				send('flip right')
-				isExceduted = True;
+				isExecuted = True;
    
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				COLORS[idx], 2)
