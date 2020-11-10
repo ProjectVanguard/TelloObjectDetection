@@ -17,7 +17,7 @@ diningtable, dog, horse, motorbike, person, pottedplant, sheep, sofa, train, tvm
 
 The bottle object is being used to carry out the demo. Once the object is detected, the *flip right* flip r, command is sent to the drone.
 
-send('flip right')
+send('flip r')
 
 <img src="./IRIS%20Tello%20Demo%200c5e455c65a8456da11ddbd4c57b1610/Draw-a-Water-Bottle-Step-11.jpg" alt="alt text" width="200"/>
 

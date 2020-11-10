@@ -43,13 +43,13 @@ def receive():
     print("Error receiving: " + str(e))
 
 # Send Tello into command mode
-#send("command")
+send("command")
 # Receive response from Tello
-#receive()
+receive()
 # Send Tello into streaming mode
-#send("streamon")
+send("streamon")
 # Receive response from Tello
-#receive()
+receive()
 
 #************************************TELLO********************************************
 
@@ -76,8 +76,8 @@ net = cv2.dnn.readNetFromCaffe("MobileNetSSD_deploy.prototxt.txt", "MobileNetSSD
 # initialize the video stream, allow the cammera sensor to warmup,
 # and initialize the FPS counter
 print("[INFO] starting video stream...")
-vs = VideoStream(src=0).start()
-#vs = VideoStream("udp://@0.0.0.0:11111?overrun_nonfatal=1&fifo_size=50000000").start()
+#vs = VideoStream(src=0).start()
+vs = VideoStream("udp://@0.0.0.0:11111?overrun_nonfatal=1&fifo_size=50000000").start()
 time.sleep(2.0)
 fps = FPS().start()
 isExecuted = False;
@@ -123,7 +123,7 @@ while True:
 			print("Found " + CLASSES[idx]);
 			if(CLASSES[idx] == 'bottle' and isExecuted == False):
 				print("detected")
-				send('flip right')
+				send('flip r')
 				isExecuted = True;
    
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
