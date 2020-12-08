@@ -28,3 +28,31 @@ send('flip r')
 Click source control or Ctrl+Shift+P on Linux and Windows, Command+Shift+P on macOS, then hit clone and then paste the following https clone link:
 
 [https://github.com/ProjectVanguard/TelloObjectDetection](https://github.com/ProjectVanguard/TelloObjectDetection)
+
+# Demo Obstacle Course
+
+## Objective
+
+The drone will begin detecting a bottle which will initiate the obstacle course, taking off the current position. Immediately after takeoff, the drone will rotate clockwise until a human is detected, which will then stop the rotating and land.
+
+## Initiating Course
+
+The drone will start the obstacle course by detecting a water bottle, and initiate the function:
+
+send('takeoff')
+
+### After takeoff, it will rotate until it detects a human
+
+while(CLASSES[index] != 'person'){
+
+send('cw 45')
+
+}
+
+<img src="https://thedatafrog.s3.amazonaws.com/media/images/Screen-Shot-2019-04-18-at-16.15.54.max-1000x500.png">
+
+## Finalizing Course
+
+After the while loop breaks, detecting the person, it will send the command:
+
+send('land')
