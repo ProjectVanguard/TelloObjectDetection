@@ -81,6 +81,7 @@ vs = VideoStream("udp://@0.0.0.0:11111?overrun_nonfatal=1&fifo_size=50000000").s
 time.sleep(2.0)
 fps = FPS().start()
 isExecuted = False;
+isDone = False;
 
 # loop over the frames from the video stream
 while True:
@@ -120,12 +121,22 @@ while True:
 				confidence * 100)
 			
 			# Print the class of the found object
-			print("Found " + CLASSES[idx]);
+			#print("Found " + CLASSES[idx]);
 			if(CLASSES[idx] == 'bottle' and isExecuted == False):
-				print("detected")
-				send('flip r')
 				isExecuted = True;
-   
+				print("Step 1 Completed: bottle detected")
+				send('takeoff')
+				print("Don't panic, I'm gonna start rotating")
+			
+			if(CLASSES[idx] == 'person' and isExecuted==True and isDone==False):
+				#Turns until it finds a person
+				print("Step 2 Completed: person detected")
+				send('land')
+				print("Step 3 Completed: landed")
+			else:
+				send('cw 45')
+				isDone = True;
+
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				COLORS[idx], 2)
 			y = startY - 15 if startY - 15 > 15 else startY + 15
