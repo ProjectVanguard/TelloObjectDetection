@@ -5,19 +5,19 @@ Part of Project Vanguard's Fall 2020 Semester Projects, IRIS focused on providin
 
 To download all the dependencies related to this project, begin by creating a Virtual Environment:
 
-python -m venv venv/
+    python -m venv venv/
 
 Activate the Venv by running:
 
-source venv/bin/activate
+    source venv/bin/activate
 
 To deactivate, simply put:
 
-deactivate
+    deactivate
 
 Install all of the dependencies using:
 
-pip install -r requierments.txt
+    pip install -r requierments.txt
 ### How it Works
 
 The Tello will carry out code running on a host computer connected to the broadcasting wifi signal coming from the drone itself. Through this network, the aircraft will execute receiving commands using UDP.
