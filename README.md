@@ -1,7 +1,23 @@
 # IRIS Tello Demo
 
 Part of Project Vanguard's Fall 2020 Semester Projects, IRIS focused on providing a scalable machine learning model for object detection, that would serve as a demo for the features implemented on the team's main line of drones.
+### Venv Installation
 
+To download all the dependencies related to this project, begin by creating a Virtual Environment:
+
+python -m venv venv/
+
+Activate the Venv by running:
+
+source venv/bin/activate
+
+To deactivate, simply put:
+
+deactivate
+
+Install all of the dependencies using:
+
+pip install -r requierments.txt
 ### How it Works
 
 The Tello will carry out code running on a host computer connected to the broadcasting wifi signal coming from the drone itself. Through this network, the aircraft will execute receiving commands using UDP.
